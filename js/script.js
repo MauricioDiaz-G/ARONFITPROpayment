@@ -80,3 +80,11 @@ $d.addEventListener("click", (e) => {
             });
     }
 });
+
+
+
+function asd()
+{
+alert("HOLAAA!!!")}
+
+asd()
