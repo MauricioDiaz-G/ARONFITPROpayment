@@ -1,3 +1,5 @@
+const KEYS = { public: "tu_clave_publica_de_stripe" }; // Coloca tu clave pública de Stripe aquí
+
 const $d = document;
 const $arepas = $d.getElementById("arepas");
 const $template = $d.getElementById("arepa-template").content;
@@ -8,18 +10,17 @@ const FormatoDeMoneda = (num) => `€${num.slice(0, -2)}.${num.slice(-2)}`;
 const obtenerProductosYPrecios = async () => {
   try {
     // Solicitar productos y precios desde el backend (Netlify Function)
-const res = await fetch('/.netlify/functions/get-products');
-
+    const res = await fetch('/.netlify/functions/get-products');
     const data = await res.json();
 
     const productos = data.productos;
     const precios = data.precios;
 
     // Ordenar precios de menor a mayor
-    precios.data.sort((a, b) => a.unit_amount - b.unit_amount);
+    precios.sort((a, b) => a.unit_amount - b.unit_amount);
 
-    precios.data.forEach((el) => {
-      let productData = productos.data.find((product) => product.id === el.product);
+    precios.forEach((el) => {
+      let productData = productos.find((product) => product.id === el.product);
 
       if (productData) {
         // Asignar datos al template
@@ -47,5 +48,4 @@ const res = await fetch('/.netlify/functions/get-products');
 
 // Llamar a la función para obtener productos y precios
 obtenerProductosYPrecios();
-
 
