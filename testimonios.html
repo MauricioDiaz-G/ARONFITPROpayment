@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="es">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>
+   Testimonios de Clientes
+  </title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&amp;display=swap" rel="stylesheet"/>
+  <script src="https://cdn.tailwindcss.com">
+  </script>
+  <style>
+   body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #0f1628;
+            color: #ededed;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .header {
+            text-align: center;
+            padding: 50px 0;
+        }
+        .header h1 {
+            font-size: 2.5em;
+            margin: 0;
+        }
+        .testimonial {
+            background: #ededed;
+            color: #0f1628;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            margin-bottom: 20px;
+            padding: 20px;
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-template-rows: auto auto 1fr;
+            gap: 20px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .testimonial:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+        .testimonial img {
+            border-radius: 50%;
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+        }
+        .testimonial h3 {
+            margin: 10px 0 5px;
+            font-size: 1.2em;
+        }
+        .testimonial p {
+            font-size: 0.9em;
+            color: #666;
+        }
+        .testimonial .whatsapp-image {
+            grid-row: 3;
+            justify-self: end;
+            align-self: end;
+        }
+        .testimonial .whatsapp-image img {
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+        .testimonial .features {
+            list-style: none;
+            padding: 0;
+        }
+        .testimonial .features li {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        .testimonial .features li i {
+            color: #1DA1F2;
+            margin-right: 10px;
+        }
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .navbar {
+            background-color: #1a202c;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .navbar a {
+            color: #ededed;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: 700;
+        }
+        .navbar a:hover {
+            color: #1DA1F2;
+        }
+        .footer {
+            background-color: #1a202c;
+            color: #ededed;
+            text-align: center;
+            padding: 20px;
+            bottom: 0;
+            width: 100%;
+        }
+        .footer a {
+            color: #eded;
+            text-decoration: none;
+            font-weight: 700;
+        }
+
+        .footer a :hover{
+            color: #1DA1F2;
+        }
+  </style>
+ </head>
+ <body>
+  <nav class="navbar">
+   <div class="logo">
+    <a href="#">
+     <i class="fas fa-comments"></i> Testimonios
+    </a>
+   </div>
+   <div class="nav-links">
+    <!-- <a href="index.html">
+     Contacto
+    </a> -->
+   </div>
+  </nav>
+  <div class="container">
+   <div class="header">
+    <h1>
+     Testimonios de Nuestros Clientes
+    </h1>
+   </div>
+   <div class="testimonial fade-in">
+    <div class="flex items-center">
+     <img alt="Foto de cliente 1, Adolfo" height="100" src="/union/images/Testimony/personas/Adolfo.png" width="100"/>
+     <div class="ml-4">
+      <h3>
+       Adolfo
+      </h3>
+      <p>
+       "El servicio fue excelente y superó todas mis expectativas. ¡Muy recomendable!"
+      </p>
+     </div>
+    </div>
+    <ul class="features">
+     <li>
+      <i class="fas fa-check-circle">
+      </i>
+      Atención personalizada
+     </li>
+     <li>
+      <i class="fas fa-check-circle">
+      </i>
+      Servicio rápido
+     </li>
+     <li>
+      <i class="fas fa-check-circle">
+      </i>
+      Resultados garantizados
+     </li>
+    </ul>
+    <div class="whatsapp-image">
+     <img alt="Captura de pantalla de un mensaje de WhatsApp de Juan Pérez elogiando el servicio" height="200" src="https://storage.googleapis.com/a1aa/image/nBBejIMGRzW7HKvU3Rf84nIZQPyhXS5H5E5mTkihMmz0E90TA.jpg" width="200"/>
+    </div>
+   </div>
+   <div class="testimonial fade-in">
+    <div class="flex items-center">
+     <img alt="Foto de cliente 2, una persona sonriente con fondo neutro" height="100" src="https://storage.googleapis.com/a1aa/image/8AuWTK1ElzbEFpppEn3OKgG1vTvFAIIKEbIZn7PaaNWORP9E.jpg" width="100"/>
+     <div class="ml-4">
+      <h3>
+       María López
+      </h3>
+      <p>
+       "Una experiencia maravillosa de principio a fin. Definitivamente volveré."
+      </p>
+     </div>
+    </div>
+    <ul class="features">
+     <li>
+      <i class="fas fa-check-circle">
+      </i>
+      Atención personalizada
+     </li>
+     <li>
+      <i class="fas fa-check-circle">
+      </i>
+      Servicio rápido
+     </li>
+     <li>
+      <i class="fas fa-check-circle">
+      </i>
+      Resultados garantizados
+     </li>
+    </ul>
+    <div class="whatsapp-image">
+     <img alt="Captura de pantalla de un mensaje de WhatsApp de María López elogiando el servicio" height="200" src="https://storage.googleapis.com/a1aa/image/GizJeNwspRwcI6iF1pRyNh0BMXkUWxADQwYtXfzHTqmzE90TA.jpg" width="200"/>
+    </div>
+   </div>
+   <div class="testimonial fade-in">
+    <div class="flex items-center">
+     <img alt="Foto de cliente 3, una persona sonriente con fondo neutro" height="100" src="https://storage.googleapis.com/a1aa/image/mlThLvwZ1R4BDBYtq5bY1R4KAYsawIva3v1ZD78jWjQLRP9E.jpg" width="100"/>
+     <div class="ml-4">
+      <h3>
+       Carlos García
+      </h3>
+      <p>
+       "Profesionalismo y atención al detalle en cada paso del proceso. ¡Gracias!"
+      </p>
+     </div>
+    </div>
+    <ul class="features">
+     <li>
+      <i class="fas fa-check-circle">
+      </i>
+      Atención personalizada
+     </li>
+     <li>
+      <i class="fas fa-check-circle">
+      </i>
+      Servicio rápido
+     </li>
+     <li>
+      <i class="fas fa-check-circle">
+      </i>
+      Resultados garantizados
+     </li>
+    </ul>
+    <div class="whatsapp-image">
+     <img alt="Captura de pantalla de un mensaje de WhatsApp de Carlos García elogiando el servicio" height="200" src="https://storage.googleapis.com/a1aa/image/QhKcFNVDj45BKVmoRn7ixRDAfmOe1vcoj3VR8jwodwi4E90TA.jpg" width="200"/>
+    </div>
+   </div>
+   <div class="testimonial fade-in">
+    <div class="flex items-center">
+     <img alt="Foto de cliente 4, una persona sonriente con fondo neutro" height="100" src="https://storage.googleapis.com/a1aa/image/XMXZf079cI2ufUG3jYJftmLlCj1ohj7gDSD2hnN7Q2teS0TPB.jpg" width="100"/>
+     <div class="ml-4">
+      <h3>
+       Ana Martínez
+      </h3>
+      <p>
+       "No podría estar más feliz con los resultados. ¡Altamente recomendado!"
+      </p>
+     </div>
+    </div>
+    <ul class="features">
+     <li>
+      <i class="fas fa-check-circle">
+      </i>
+      Atención personalizada
+     </li>
+     <li>
+      <i class="fas fa-check-circle">
+      </i>
+      Servicio rápido
+     </li>
+     <li>
+      <i class="fas fa-check-circle">
+      </i>
+      Resultados garantizados
+     </li>
+    </ul>
+    <div class="whatsapp-image">
+     <img alt="Captura de pantalla de un mensaje de WhatsApp de Ana Martínez elogiando el servicio" height="200" src="https://storage.googleapis.com/a1aa/image/bVms2BtUEpp9GlKBNKACNJZZ92BgmKRei8BYEsieEaT6E90TA.jpg" width="200"/>
+    </div>
+   </div>
+   <div class="testimonial fade-in">
+    <div class="flex items-center">
+     <img alt="Foto de cliente 5, una persona sonriente con fondo neutro" height="100" src="https://storage.googleapis.com/a1aa/image/T0eTfpws4fHFFp8fBBvUaphqdqgldq0JzZoNhxYMWL9sT0TPB.jpg" width="100"/>
+     <div class="ml-4">
+      <h3>
+       Pedro Sánchez
+      </h3>
+      <p>
+       "Un equipo increíble que realmente se preocupa por sus clientes. ¡Gracias por todo!"
+      </p>
+     </div>
+    </div>
+    <ul class="features">
+     <li>
+      <i class="fas fa-check-circle">
+      </i>
+      Atención personalizada
+     </li>
+     <li>
+      <i class="fas fa-check-circle">
+      </i>
+      Servicio rápido
+     </li>
+     <li>
+      <i class="fas fa-check-circle">
+      </i>
+      Resultados garantizados
+     </li>
+    </ul>
+    <div class="whatsapp-image">
+     <img alt="Captura de pantalla de un mensaje de WhatsApp de Pedro Sánchez elogiando el servicio" height="200" src="https://storage.googleapis.com/a1aa/image/0cTof1eg13mrE0O6hn03PW3ASlwhCM5iF4seXgKhj5uvJ6pnA.jpg" width="200"/>
+    </div>
+   </div>
+   <div class="testimonial fade-in">
+    <div class="flex items-center">
+     <img alt="Foto de cliente 6, una persona sonriente con fondo neutro" height="100" src="https://storage.googleapis.com/a1aa/image/IJT9W7vtCYJuLRFHrMJNsmkitjCRyOKSKe3VhhaWSjTWie0TA.jpg" width="100"/>
+     <div class="ml-4">
+      <h3>
+       Lucía Fernández
+      </h3>
+      <p>
+       "La mejor experiencia que he tenido. ¡Definitivamente lo recomendaré a mis amigos!"
+      </p>
+     </div>
+    </div>
+    <ul class="features">
+     <li>
+      <i class="fas fa-check-circle">
+      </i>
+      Atención personalizada
+     </li>
+     <li>
+      <i class="fas fa-check-circle">
+      </i>
+      Servicio rápido
+     </li>
+     <li>
+      <i class="fas fa-check-circle">
+      </i>
+      Resultados garantizados
+     </li>
+    </ul>
+    <div class="whatsapp-image">
+     <img alt="Captura de pantalla de un mensaje de WhatsApp de Lucía Fernández elogiando el servicio" height="200" src="https://storage.googleapis.com/a1aa/image/6RfUNNb19swcDSie5qA6rFFaGmsmFADwX2Yn4kwkINk1E90TA.jpg" width="200"/>
+    </div>
+   </div>
+  </div>
+  <footer class="footer">
+   <p>
+    <a href="index.html">
+     Volver al inicio
+    </a>
+   </p>
+  </footer>
+  <script>
+   document.addEventListener('DOMContentLoaded', function() {
+            const testimonials = document.querySelectorAll('.testimonial');
+            const observer = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+
+            testimonials.forEach(testimonial => {
+                observer.observe(testimonial);
+            });
+        });
+  </script>
+ </body>
+</html>
