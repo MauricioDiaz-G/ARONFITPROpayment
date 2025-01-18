@@ -1,4 +1,4 @@
-import KEYS from "./assets/keys.js"; // Solo la clave pública
+import KEYS from "../assets/keys.js"; // Solo la clave pública
 
 const $d = document;
 const $arepas = $d.getElementById("arepas");
