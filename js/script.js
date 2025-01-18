@@ -63,7 +63,7 @@ $d.addEventListener("click", (e) => {
         let priceId = e.target.getAttribute("data-price");
 
         // Llamar a la función de Netlify (ahora sustituida por la lógica en el frontend)
-        fetch('/.netlify/functions/createCheckoutSession', {
+        fetch('/Netlify/createCheckoutSession.js', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ priceId })
