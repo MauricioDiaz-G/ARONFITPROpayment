@@ -4,36 +4,28 @@ const $d = document;
 const $arepas = $d.getElementById("arepas");
 const $template = $d.getElementById("arepa-template").content;
 const $fragment = $d.createDocumentFragment();
-const options = { headers: { Authorization: `Bearer ${KEYS.public}` } };
+
 const FormatoDeMoneda = (num) => `€${num.slice(0, -2)}.${num.slice(-2)}`;
 
-let products, prices;
-
-Promise.all([
-    fetch("https://api.stripe.com/v1/products", options),
-    fetch("https://api.stripe.com/v1/prices", options),
-])
-    .then((responses) => Promise.all(responses.map((res) => res.json())))
-    .then((json) => {
-        products = json[0].data;
-        prices = json[1].data;
+// Solicita productos y precios al backend
+fetch('/.netlify/functions/getProductsAndPrices')
+    .then(response => response.json())
+    .then((data) => {
+        const { products, prices } = data;
 
         // Ordenar precios de menor a mayor
         prices.sort((a, b) => a.unit_amount - b.unit_amount);
 
         prices.forEach((el) => {
-            let productData = products.filter((product) => product.id === el.product);
+            let productData = products.find((product) => product.id === el.product);
 
-            if (productData.length > 0) {
-                let product = productData[0];
-                let price = el;
-
+            if (productData) {
                 // Asignar datos al template
-                $template.querySelector(".pricing-plan").textContent = product.name || "Plan";
-                $template.querySelector(".price .amount").textContent = FormatoDeMoneda(price.unit_amount_decimal);
+                $template.querySelector(".pricing-plan").textContent = productData.name || "Plan";
+                $template.querySelector(".price .amount").textContent = FormatoDeMoneda(el.unit_amount_decimal);
                 $template.querySelector(".price small").textContent = "/5 semanas";
-                $template.querySelector(".description").textContent = product.description || "Descripción no disponible";
-                $template.querySelector(".btn").setAttribute("data-price", price.id);
+                $template.querySelector(".description").textContent = productData.description || "Descripción no disponible";
+                $template.querySelector(".btn").setAttribute("data-price", el.id);
 
                 // Clonar y agregar al fragmento
                 let $clone = $d.importNode($template, true);
@@ -81,10 +73,3 @@ $d.addEventListener("click", (e) => {
     }
 });
 
-
-
-function asd()
-{
-alert("HOLAAA!!!")}
-
-asd()
