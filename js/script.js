@@ -8,7 +8,8 @@ const FormatoDeMoneda = (num) => `€${num.slice(0, -2)}.${num.slice(-2)}`;
 const obtenerProductosYPrecios = async () => {
   try {
     // Solicitar productos y precios desde el backend (Netlify Function)
-    const res = await fetch('/netlify/functions/get-products.js');
+const res = await fetch('/.netlify/functions/get-products');
+
     const data = await res.json();
 
     const productos = data.productos;
