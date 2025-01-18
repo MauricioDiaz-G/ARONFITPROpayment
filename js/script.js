@@ -7,17 +7,27 @@ const $fragment = $d.createDocumentFragment();
 
 const FormatoDeMoneda = (num) => `€${num.slice(0, -2)}.${num.slice(-2)}`;
 
-// Solicita productos y precios al backend
-fetch('/.netlify/functions/getProductsAndPrices')
-    .then(response => response.json())
-    .then((data) => {
-        const { products, prices } = data;
+const obtenerProductosYPrecios = async () => {
+    try {
+        // Solicita productos y precios directamente desde Stripe (o tu API)
+        const resProductos = await fetch('https://api.stripe.com/v1/products', {
+            method: 'GET',
+            headers: { 'Authorization': `Bearer ${KEYS.secret}` }, // Utiliza la clave secreta aquí
+        });
+
+        const resPrecios = await fetch('https://api.stripe.com/v1/prices', {
+            method: 'GET',
+            headers: { 'Authorization': `Bearer ${KEYS.secret}` }, // Utiliza la clave secreta aquí
+        });
+
+        const productos = await resProductos.json();
+        const precios = await resPrecios.json();
 
         // Ordenar precios de menor a mayor
-        prices.sort((a, b) => a.unit_amount - b.unit_amount);
+        precios.data.sort((a, b) => a.unit_amount - b.unit_amount);
 
-        prices.forEach((el) => {
-            let productData = products.find((product) => product.id === el.product);
+        precios.data.forEach((el) => {
+            let productData = productos.data.find((product) => product.id === el.product);
 
             if (productData) {
                 // Asignar datos al template
@@ -36,12 +46,15 @@ fetch('/.netlify/functions/getProductsAndPrices')
         });
 
         $arepas.appendChild($fragment);
-    })
-    .catch((error) => {
+    } catch (error) {
         console.error("Error en la solicitud:", error);
         let message = error.statusText || "Ocurrió un error en la petición";
         $arepas.innerHTML = `Error: ${error.status || ""}: ${message}`;
-    });
+    }
+};
+
+// Llamar a la función para obtener productos y precios
+obtenerProductosYPrecios();
 
 // Manejo de clics en los botones
 $d.addEventListener("click", (e) => {
@@ -49,11 +62,11 @@ $d.addEventListener("click", (e) => {
         e.preventDefault();
         let priceId = e.target.getAttribute("data-price");
 
-        // Llamar a la función de Netlify para crear la sesión
+        // Llamar a la función de Netlify (ahora sustituida por la lógica en el frontend)
         fetch('/.netlify/functions/createCheckoutSession', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ priceId }),
+            body: JSON.stringify({ priceId })
         })
             .then(response => response.json())
             .then(session => {
