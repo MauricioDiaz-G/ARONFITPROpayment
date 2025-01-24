@@ -1,4 +1,4 @@
-const KEYS = { public: "tu_clave_publica_de_stripe" }; // Coloca tu clave pública de Stripe aquí
+const KEYS = { public: "pk_test_51QXTdzDleD0jqpl3oUTZiW3tdVjZzSG3JH8TGy1ghUPsNntgblBgRlHbWZMZwUvA9OOs2qhiP6f3O0BpEHS9MXK600yVZ49SnI" }; // Coloca tu clave pública de Stripe aquí
 
 const $d = document;
 const $arepas = $d.getElementById("arepas");
